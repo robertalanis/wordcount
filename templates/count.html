@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Word Count Results</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+			crossorigin="anonymous"
+		/>
+	</head>
+
+	<body>
+		<div class="container-sm">
+			<div class="jumbotron">
+				<h1 class="display-4">Word Counter</h1>
+				<hr class="my-4" />
+				<p class="lead">
+					There are <strong>{{ count }}</strong> words in your text!
+				</p>
+				<a href="{% url 'home' %}" class="btn btn-primary btn-lg" role="button">Start Over</a>
+			</div>
+
+			<h2>Your text:</h2>
+			<p>{{ full_text }}</p>
+
+			<h2>Word Count:</h2>
+
+			{% for word, count_total in sorted_words %} {{ word }} - {{ count_total }}
+			<br />
+
+			{% endfor %}
+		</div>
+	</body>
+</html>
